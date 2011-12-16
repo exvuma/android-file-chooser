@@ -6,17 +6,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import br.com.thinkti.android.filechooser.R;
-
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class FileChooser extends ListActivity {
 	private File currentDir;
@@ -31,14 +27,11 @@ public class FileChooser extends ListActivity {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			if (extras.getStringArrayList("filterFileExtension") != null) {
-				extensions = extras.getStringArrayList("filterFileExtension");
-				Log.i("AAA", extensions.size()+ "");
+				extensions = extras.getStringArrayList("filterFileExtension");				
 				fileFilter = new FileFilter() {
 					@Override
-					public boolean accept(File pathname) {
-						Log.i("AAA", pathname.getName()+ "");
-						Log.i("AAA", pathname.getName()+ "");
-						return (pathname.getName().contains(".")?extensions.contains(pathname.getName().substring(pathname.getName().lastIndexOf("."))):true);
+					public boolean accept(File pathname) {						
+						return ((pathname.isDirectory()) || (pathname.getName().contains(".")?extensions.contains(pathname.getName().substring(pathname.getName().lastIndexOf("."))):false));
 					}
 				};
 			}
@@ -113,10 +106,9 @@ public class FileChooser extends ListActivity {
 			finish();
 		}		
 	}
-
-	private void onFileClick(Option o) {
-		Toast.makeText(this, "File Clicked: " + o.getName(), Toast.LENGTH_SHORT)
-				.show();
-	}
-		
+//
+//	private void onFileClick(Option o) {
+//		Toast.makeText(this, "File Clicked: " + o.getName(), Toast.LENGTH_SHORT)
+//				.show();
+//	}		
 }
