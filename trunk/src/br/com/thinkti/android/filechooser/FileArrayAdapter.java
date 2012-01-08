@@ -47,7 +47,7 @@ public class FileArrayAdapter extends ArrayAdapter<Option> {
 			if(o.getData().equalsIgnoreCase("folder")){
 				im.setImageResource(R.drawable.folder);
 			} else if (o.getData().equalsIgnoreCase("parent directory")) {
-				im.setImageResource(R.drawable.back32);
+				im.setImageResource(R.drawable.back);
 			} else {
 				String name = o.getName().toLowerCase();
 				if (name.endsWith(".xls") ||  name.endsWith(".xlsx"))
@@ -57,23 +57,23 @@ public class FileArrayAdapter extends ArrayAdapter<Option> {
 				else if (name.endsWith(".ppt") ||  o.getName().endsWith(".pptx"))
 					im.setImageResource(R.drawable.ppt);
 				else if (name.endsWith(".pdf"))
-					im.setImageResource(R.drawable.pdf);
+					im.setImageResource(R.drawable.pdf_list);
 				else if (name.endsWith(".apk"))
-					im.setImageResource(R.drawable.android32);
+					im.setImageResource(R.drawable.and);
 				else if (name.endsWith(".txt"))
-					im.setImageResource(R.drawable.txt32);
+					im.setImageResource(R.drawable.txt);
 				else if (name.endsWith(".jpg") || name.endsWith(".jpeg"))
-					im.setImageResource(R.drawable.jpg32);
+					im.setImageResource(R.drawable.jpg);
 				else if (name.endsWith(".png"))
-					im.setImageResource(R.drawable.png32);
+					im.setImageResource(R.drawable.png);
 				else if (name.endsWith(".zip"))
-					im.setImageResource(R.drawable.zip32);
+					im.setImageResource(R.drawable.zip);
 				else if (name.endsWith(".rtf"))
-					im.setImageResource(R.drawable.rtf32);
+					im.setImageResource(R.drawable.rtf);
 				else if (name.endsWith(".gif"))
-					im.setImageResource(R.drawable.gif32);
+					im.setImageResource(R.drawable.gif);
 				else
-					im.setImageResource(R.drawable.whitepage32);					
+					im.setImageResource(R.drawable.whitepage);					
 			}
 
 			if (t1 != null)

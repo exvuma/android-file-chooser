@@ -6,14 +6,16 @@ public class Option implements Comparable<Option>{
 	private String path;
 	private boolean folder;
 	private boolean parent;
+	private boolean back;
 	
-	public Option(String n,String d,String p, boolean folder, boolean parent)
+	public Option(String n,String d,String p, boolean folder, boolean parent, boolean back)
 	{
 		name = n;
 		data = d;
 		path = p;
 		this.folder = folder;
 		this.parent = parent;
+		this.back = back;
 	}
 	public String getName()
 	{
@@ -39,5 +41,11 @@ public class Option implements Comparable<Option>{
 	}
 	public boolean isParent() {
 		return parent;
+	}
+	public boolean isBack() {
+		return back;
+	}
+	public void setBack(boolean back) {
+		this.back = back;
 	}
 }
