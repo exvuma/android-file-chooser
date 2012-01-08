@@ -68,11 +68,11 @@ public class FileChooser extends ListActivity {
 			for (File ff : dirs) {
 				if (ff.isDirectory() && !ff.isHidden())
 					dir.add(new Option(ff.getName(), getString(R.string.folder), ff
-							.getAbsolutePath(), true, false));
+							.getAbsolutePath(), true, false, false));
 				else {
 					if (!ff.isHidden())
 						fls.add(new Option(ff.getName(), getString(R.string.fileSize) + ": "
-								+ ff.length(), ff.getAbsolutePath(), false, false));
+								+ ff.length(), ff.getAbsolutePath(), false, false, false));
 				}
 			}
 		} catch (Exception e) {
@@ -82,7 +82,7 @@ public class FileChooser extends ListActivity {
 		Collections.sort(fls);
 		dir.addAll(fls);
 		if (!f.getName().equalsIgnoreCase("sdcard")) {
-			if (f.getParentFile() != null) dir.add(0, new Option("..", getString(R.string.parentDirectory), f.getParent(), false, true));
+			if (f.getParentFile() != null) dir.add(0, new Option("..", getString(R.string.parentDirectory), f.getParent(), false, true, false));
 		}
 		adapter = new FileArrayAdapter(FileChooser.this, R.layout.file_view,
 				dir);
